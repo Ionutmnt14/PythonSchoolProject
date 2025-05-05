@@ -12,6 +12,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { Border } from "./Border";
 
 function SensorDisplay({ sensorId }) {
   // State to store the sensor data fetched from the API
@@ -186,31 +187,56 @@ function SensorDisplay({ sensorId }) {
         </motion.div>
         <div className="text-white flex flex-col gap-1 text-xl">
           {/* Display additional sensor information */}
-          <motion.p variants={fade("up", 0.2)} initial="hidden" animate="show">
+          <motion.p
+            variants={fade("up", 0.2)}
+            initial="hidden"
+            animate="show"
+            className="relative"
+          >
             Numarul inregistrarilor: {sensorData.total_records ?? 0}
+            <Border />
           </motion.p>
           <motion.p
             variants={fade("up", 0.4)}
             initial="hidden"
             animate="show"
-            className="font-bold"
+            className="font-bold relative"
           >
             Ultima inregistrare: [
             {sensorData.last_timestamp
               ? new Date(sensorData.last_timestamp).toLocaleString()
               : "N/A"}{" "}
             , {sensorData.last_value}, {sensorData.pes_id}]
+            <Border />
           </motion.p>
-          <motion.p variants={fade("up", 0.6)} initial="hidden" animate="show">
+          <motion.p
+            variants={fade("up", 0.6)}
+            initial="hidden"
+            animate="show"
+            className="relative mb-2"
+          >
             Numar Public Electricity Supplier (pes_id):{" "}
             {sensorData.pes_id ?? "N/A"}
+            <Border />
           </motion.p>
-          <motion.p variants={fade("up", 0.8)} initial="hidden" animate="show">
+          <motion.p
+            variants={fade("up", 0.8)}
+            initial="hidden"
+            animate="show"
+            className="relative mb-2"
+          >
             Ultimul timestamp (datetime_gmt):{" "}
             {sensorData.last_timestamp ?? "N/A"}
+            <Border />
           </motion.p>
-          <motion.p variants={fade("up", 1)} initial="hidden" animate="show">
+          <motion.p
+            variants={fade("up", 1)}
+            initial="hidden"
+            animate="show"
+            className="relative mb-2"
+          >
             Ultima valoare (generation_mw): {sensorData.last_value ?? "N/A"}
+            <Border />
           </motion.p>
         </div>
       </div>

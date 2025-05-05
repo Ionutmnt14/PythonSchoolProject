@@ -13,9 +13,9 @@ function HomePage() {
 
   // Define the names of the sensors (you could fetch these from an API if needed)
   const sensorNames = {
-    0: "Sensor 0",
-    1: "Sensor 1",
-    2: "Sensor 2",
+    0: "Senzor 0",
+    1: "Senzor 1",
+    2: "Senzor 2",
   };
 
   return (
